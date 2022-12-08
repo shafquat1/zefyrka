@@ -342,7 +342,6 @@ Widget _selectHeadingStyleButtonBuilder(BuildContext context,
     NotusAttribute.heading.unset: 'Normal text',
     NotusAttribute.heading.level1: 'Heading 1',
     NotusAttribute.heading.level2: 'Heading 2',
-    NotusAttribute.heading.level3: 'Heading 3',
   };
 
   return ZDropdownButton<NotusAttribute?>(
@@ -366,11 +365,6 @@ Widget _selectHeadingStyleButtonBuilder(BuildContext context,
         height: 32,
         child: Text(valueToText[NotusAttribute.heading.level2]!, style: style),
       ),
-      PopupMenuItem(
-        value: NotusAttribute.heading.level3,
-        height: 32,
-        child: Text(valueToText[NotusAttribute.heading.level3]!, style: style),
-      ),
     ],
     onSelected: onSelected,
     child: Text(
@@ -391,14 +385,14 @@ class ZefyrToolbar extends StatefulWidget implements PreferredSizeWidget {
       bool hideBoldButton = false,
       bool hideItalicButton = false,
       bool hideUnderLineButton = false,
-      bool hideStrikeThrough = false,
+      bool hideStrikeThrough = true,
       bool hideHeadingStyle = false,
       bool hideListNumbers = false,
       bool hideListBullets = false,
-      bool hideCodeBlock = false,
-      bool hideQuote = false,
+      bool hideCodeBlock = true,
+      bool hideQuote = true,
       bool hideLink = false,
-      bool hideHorizontalRule = false}) {
+      bool hideHorizontalRule = true}) {
     return ZefyrToolbar(key: key, children: [
       Visibility(
         visible: !hideBoldButton,
